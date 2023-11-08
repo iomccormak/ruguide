@@ -11,6 +11,13 @@ class LocationPoint with _$LocationPoint {
     required double long,
   }) = _LocationPoint;
 
+  static LocationPoint getEmpty() {
+    return const LocationPoint(
+      lat: 55.7522200,
+      long: 37.6155600,
+    );
+  }
+
   factory LocationPoint.fromJson(Map<String, dynamic> json) =>
       _$LocationPointFromJson(json);
 }

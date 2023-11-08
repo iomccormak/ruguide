@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ruguide/navigation/auto_router.gr.dart';
 import 'package:ruguide/di/locator.dart';
+import 'package:ruguide/presentation/utils/app_colors.dart';
+import 'package:ruguide/presentation/utils/app_text_styles.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,21 +45,23 @@ class _MyAppState extends State<MyApp> {
             title: 'RuGuide',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-                /*colorScheme:
+              colorScheme:
                   ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
               scaffoldBackgroundColor: AppColors.backgroundColor,
+              fontFamily: "Montserrat",
               appBarTheme: AppBarTheme(
-                systemOverlayStyle: const SystemUiOverlayStyle(
+                /*systemOverlayStyle: const SystemUiOverlayStyle(
                   statusBarColor: AppColors.mainMenuItemShadowColor,
                   statusBarIconBrightness: Brightness.light,
                   statusBarBrightness: Brightness.dark,
-                ),
+                ),*/
                 elevation: 0,
-                centerTitle: false,
-                backgroundColor: AppColors.mainMenuItemMainColor,
-                titleTextStyle: AppTextStyles.bold16,
-              ),*/
-                ),
+                centerTitle: true,
+                backgroundColor: AppColors.backgroundColor,
+                titleTextStyle: AppTextStyles.appBar,
+                
+              ),
+            ),
             routerDelegate: _autoRouter.delegate(),
             routeInformationParser: _autoRouter.defaultRouteParser(),
           ),
