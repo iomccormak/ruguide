@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713602338207",
+    "project_id": "ruguide-922a3",
+    "storage_bucket": "ruguide-922a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713602338207:android:283fe36b1c463c8d8a01aa",
+        "android_client_info": {
+          "package_name": "com.example.ruguide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC36h_Ck5Z41T5_ybVoKlX1ttPEKAywdLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
