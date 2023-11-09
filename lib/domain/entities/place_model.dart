@@ -22,10 +22,7 @@ class PlaceModel with _$PlaceModel {
     return PlaceModel(
       id: 'id',
       creatorId: 'creatorId',
-      locationPoint: const LocationPoint(
-        lat: 55.7522200,
-        long: 37.6155600,
-      ),
+      locationPoint: LocationPoint.getEmpty(),
       name: 'Moscow right now',
       description: 'Moscow desciption',
       timeStamp: DateTime.now(),

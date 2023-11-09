@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ruguide/presentation/pages/map_page/map_page.dart';
 import 'package:ruguide/presentation/pages/CORE/core_page.dart';
 import 'package:ruguide/presentation/pages/home_page/home_page.dart';
 import 'package:ruguide/presentation/pages/splash_page/splash_page.dart';
@@ -15,7 +16,10 @@ import 'package:ruguide/presentation/pages/splash_page/splash_page.dart';
     ),
     AutoRoute(
       page: SplashPage,
-    )
+    ),
+    AutoRoute(
+      page: MapPage,
+    ),
   ],
 )
 class $AutoRouter {}

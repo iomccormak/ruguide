@@ -34,40 +34,4 @@ class AppLocationImpl implements AppLocation {
             value == LocationPermission.whileInUse)
         .catchError((_) => false);
   }
-
-  Future<void> _initPermission() async {
-    if (!await AppLocationImpl().checkPermission()) {
-      await AppLocationImpl().requestPermission();
-    }
-    await _fetchCurrentLocation();
-  }
-
-  Future<LocationPoint> _fetchCurrentLocation() async {
-    LocationPoint location;
-    final defLocation = LocationPoint.getEmpty();
-    try {
-      location = await AppLocationImpl().getCurrentLocation();
-    } catch (_) {
-      location = defLocation;
-    }
-    return location;
-  }
-
-  Future<void> _moveToCurrentLocation(
-    Completer<YandexMapController> mapControllerCompleter,
-  ) async {
-    final locationPoint = await _fetchCurrentLocation();
-    (await mapControllerCompleter.future).moveCamera(
-      animation: const MapAnimation(type: MapAnimationType.linear, duration: 1),
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: Point(
-            latitude: locationPoint.lat,
-            longitude: locationPoint.long,
-          ),
-          zoom: 12,
-        ),
-      ),
-    );
-  }
 }
