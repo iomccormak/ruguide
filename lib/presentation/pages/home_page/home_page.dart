@@ -23,42 +23,18 @@ class HomePage extends StatelessWidget {
             ),
             30.h.heightBox,
             HomePageButton(
-              text: 'Перейти к карте',
+              text: 'Регионы страны',
               colors: const [
                 AppColors.primaryColor,
                 AppColors.lightPrimaryColor,
               ],
-              icon: Icons.search_outlined,
+              icon: Icons.map_outlined,
               onTap: () {
-                context.router.push(MapRoute());
+                context.router.push(RegionsRoute());
               },
             ),
             20.h.heightBox,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                HomePageButton(
-                  text: 'Новое место',
-                  colors: const [
-                    AppColors.pink1,
-                    AppColors.pink2,
-                  ],
-                  icon: Icons.place_outlined,
-                  small: true,
-                  onTap: () {},
-                ),
-                HomePageButton(
-                  text: 'Новый маршрут',
-                  colors: const [
-                    AppColors.secondaryColor,
-                    AppColors.secondaryLightColor,
-                  ],
-                  icon: Icons.route_outlined,
-                  small: true,
-                  onTap: () {},
-                ),
-              ],
-            ),
+            
           ],
         ),
       ).paddingSymmetric(horizontal: 30.w),

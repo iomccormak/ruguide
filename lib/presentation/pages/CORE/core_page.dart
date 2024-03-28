@@ -25,10 +25,6 @@ class CorePage extends StatelessWidget {
               onTap: () => context.router.push(SplashRoute()),
               text: 'Splash page',
             ),
-            CoreButton(onTap: () {}, text: 'Sign in Page'),
-            CoreButton(onTap: () {}, text: 'Sign up Page'),
-            CoreButton(onTap: () {}, text: '*Forgot password page'),
-            CoreButton(onTap: () {}, text: '*Enter code Page'),
             CoreButton(
               onTap: () => context.router.push(HomeRoute()),
               text: 'Home page',

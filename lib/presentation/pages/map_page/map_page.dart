@@ -19,12 +19,6 @@ class _MapPageState extends State<MapPage> {
   final mapControllerCompleter = Completer<YandexMapController>();
 
   @override
-  void initState() {
-    super.initState();
-    _initPermission().ignore();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -41,43 +35,6 @@ class _MapPageState extends State<MapPage> {
         onMapCreated: (controller) {
           mapControllerCompleter.complete(controller);
         },
-      ),
-    );
-  }
-
-  Future<void> _initPermission() async {
-    if (!await AppLocationImpl().checkPermission()) {
-      await AppLocationImpl().requestPermission();
-    }
-    await _fetchCurrentLocation();
-  }
-
-  /// Получение текущей геопозиции пользователя
-  Future<void> _fetchCurrentLocation() async {
-    LocationPoint location;
-    final defLocation = LocationPoint.getEmpty();
-    try {
-      location = await AppLocationImpl().getCurrentLocation();
-    } catch (_) {
-      location = defLocation;
-    }
-    _moveToCurrentLocation(location);
-  }
-
-  /// Метод для показа текущей позиции
-  Future<void> _moveToCurrentLocation(
-    LocationPoint appLatLong,
-  ) async {
-    (await mapControllerCompleter.future).moveCamera(
-      animation: const MapAnimation(type: MapAnimationType.linear, duration: 1),
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: Point(
-            latitude: appLatLong.lat,
-            longitude: appLatLong.long,
-          ),
-          zoom: 12,
-        ),
       ),
     );
   }

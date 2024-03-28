@@ -1,1 +1,3 @@
-abstract class PlacesRepository {}
+abstract class PlacesRepository {
+  
+}

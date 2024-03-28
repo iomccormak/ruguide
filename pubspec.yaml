@@ -64,6 +64,8 @@ dependencies:
   # Yandex map kit
   yandex_mapkit: ^3.2.0
   geolocator: ^9.0.2
+  cached_network_image: ^3.3.1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
