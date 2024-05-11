@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ruguide/domain/entities/region/town_entity.dart';
+import 'package:ruguide/navigation/auto_router.gr.dart';
+import 'package:ruguide/presentation/pages/region/widgets/expandable_text_field.dart';
 import 'package:ruguide/presentation/utils/app_colors.dart';
 import 'package:ruguide/presentation/utils/app_text_styles.dart';
 
@@ -99,34 +102,42 @@ class TownPage extends StatelessWidget {
                 thickness: 2.r,
               ),
               20.h.heightBox,
-              Container(
-                height: 80.h,
-                decoration: BoxDecoration(
-                  color: AppColors.primaryColor,
-                  borderRadius: BorderRadius.circular(12.r),
+              GestureDetector(
+                onTap: () => context.router.push(
+                  MapRoute(
+                    locationPoint: town.locationPoint,
+                    name: town.name,
+                  ),
                 ),
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: Colors.white,
-                      size: 20.r,
-                    ),
-                    5.h.heightBox,
-                    Text(
-                      'Показать на карте',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.label.copyWith(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w400,
+                child: Container(
+                  height: 80.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryColor,
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.search,
                         color: Colors.white,
+                        size: 20.r,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                      5.h.heightBox,
+                      Text(
+                        'Показать на карте',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyles.label.copyWith(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               20.h.heightBox,
@@ -134,29 +145,17 @@ class TownPage extends StatelessWidget {
                 thickness: 2.r,
               ),
               if (town.history != null) ...[
-                30.h.heightBox,
-                Text(
-                  'История:',
-                  style: AppTextStyles.underTitle
-                      .copyWith(fontWeight: FontWeight.w600),
-                ),
                 10.h.heightBox,
-                Text(
-                  town.history!,
-                  style: AppTextStyles.underTitle,
+                ExpandableTextWidget(
+                  title: 'История',
+                  content: town.history!,
                 ),
               ],
               if (town.culture != null) ...[
-                30.h.heightBox,
-                Text(
-                  'Культура:',
-                  style: AppTextStyles.underTitle
-                      .copyWith(fontWeight: FontWeight.w600),
-                ),
                 10.h.heightBox,
-                Text(
-                  town.culture!,
-                  style: AppTextStyles.underTitle,
+                ExpandableTextWidget(
+                  title: 'Культура',
+                  content: town.culture!,
                 ),
               ],
               20.h.heightBox,

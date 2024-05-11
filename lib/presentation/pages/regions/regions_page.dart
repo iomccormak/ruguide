@@ -71,20 +71,24 @@ class RegionsPage extends StatelessWidget {
                                 ),
                                 borderRadius: BorderRadius.circular(10.r),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10.r),
-                                child: CachedNetworkImage(
-                                  imageUrl: state.regions[index].photos.first,
-                                  placeholder: (context, url) => Center(
-                                    child: SizedBox(
-                                      width: 20.r,
-                                      height: 20.r,
-                                      child: const CircularProgressIndicator(),
+                              child: state.regions[index].photos.isEmpty
+                                  ? const SizedBox.shrink()
+                                  : ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.r),
+                                      child: CachedNetworkImage(
+                                        imageUrl:
+                                            state.regions[index].photos.first,
+                                        placeholder: (context, url) => Center(
+                                          child: SizedBox(
+                                            width: 20.r,
+                                            height: 20.r,
+                                            child:
+                                                const CircularProgressIndicator(),
+                                          ),
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
                             ),
                           ),
                           10.h.heightBox,

@@ -29,10 +29,6 @@ class CorePage extends StatelessWidget {
               onTap: () => context.router.push(HomeRoute()),
               text: 'Home page',
             ),
-             CoreButton(
-              onTap: () => context.router.push(MapRoute()),
-              text: 'Map page',
-            ),
             CoreButton(onTap: () {}, text: 'Add a place Page'),
             CoreButton(onTap: () {}, text: 'Add a route Page'),
             CoreButton(onTap: () {}, text: 'Profile Page'),

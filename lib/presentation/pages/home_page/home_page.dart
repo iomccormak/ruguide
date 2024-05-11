@@ -34,7 +34,30 @@ class HomePage extends StatelessWidget {
               },
             ),
             20.h.heightBox,
-            
+            HomePageButton(
+              text: 'Добавить место',
+              colors: const [
+                AppColors.pink1,
+                AppColors.pink2,
+              ],
+              icon: Icons.map_outlined,
+              onTap: () {
+                context.router.push(NewPlaceRoute());
+              },
+            ),
+            20.h.heightBox,
+            HomePageButton(
+              text: 'Форумы',
+              colors: const [
+                AppColors.grey3,
+                AppColors.grey4,
+              ],
+              icon: Icons.map_outlined,
+              onTap: () {
+                context.router.push(RegionsRoute());
+              },
+            ),
+            20.h.heightBox,
           ],
         ),
       ).paddingSymmetric(horizontal: 30.w),

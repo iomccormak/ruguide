@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ruguide/domain/entities/region/region_entity.dart';
 import 'package:ruguide/navigation/auto_router.gr.dart';
+import 'package:ruguide/presentation/pages/region/widgets/expandable_text_field.dart';
 import 'package:ruguide/presentation/utils/app_colors.dart';
 import 'package:ruguide/presentation/utils/app_text_styles.dart';
 
@@ -86,7 +87,6 @@ class RegionPage extends StatelessWidget {
                     region.name,
                     style: AppTextStyles.appBar,
                   ),
-                  10.h.heightBox,
                   Text(
                     'Площадь: ${region.square}',
                     style: AppTextStyles.underTitle.copyWith(fontSize: 14.sp),
@@ -97,11 +97,11 @@ class RegionPage extends StatelessWidget {
                   ),
                 ],
               ),
-              20.h.heightBox,
+              10.h.heightBox,
               Divider(
                 thickness: 2.r,
               ),
-              20.h.heightBox,
+              10.h.heightBox,
               Text(
                 'Крупнейшие города:',
                 style: AppTextStyles.underTitle
@@ -109,7 +109,7 @@ class RegionPage extends StatelessWidget {
               ),
               10.h.heightBox,
               SizedBox(
-                height: 70.h,
+                height: 60.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
@@ -146,7 +146,7 @@ class RegionPage extends StatelessWidget {
                   },
                 ),
               ),
-              20.h.heightBox,
+              10.h.heightBox,
               Text(
                 'Достопримечательности:',
                 style: AppTextStyles.underTitle
@@ -154,7 +154,7 @@ class RegionPage extends StatelessWidget {
               ),
               10.h.heightBox,
               SizedBox(
-                height: 70.h,
+                height: 60.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
@@ -198,42 +198,24 @@ class RegionPage extends StatelessWidget {
                 thickness: 2.r,
               ),
               if (region.history != null) ...[
-                30.h.heightBox,
-                Text(
-                  'История:',
-                  style: AppTextStyles.underTitle
-                      .copyWith(fontWeight: FontWeight.w600),
-                ),
                 10.h.heightBox,
-                Text(
-                  region.history!,
-                  style: AppTextStyles.underTitle,
+                ExpandableTextWidget(
+                  title: 'История',
+                  content: region.history!,
                 ),
               ],
               if (region.culture != null) ...[
-                30.h.heightBox,
-                Text(
-                  'Культура:',
-                  style: AppTextStyles.underTitle
-                      .copyWith(fontWeight: FontWeight.w600),
-                ),
                 10.h.heightBox,
-                Text(
-                  region.culture!,
-                  style: AppTextStyles.underTitle,
+                ExpandableTextWidget(
+                  title: 'Культура',
+                  content: region.culture!,
                 ),
               ],
               if (region.culture != null) ...[
-                30.h.heightBox,
-                Text(
-                  'Кухня:',
-                  style: AppTextStyles.underTitle
-                      .copyWith(fontWeight: FontWeight.w600),
-                ),
                 10.h.heightBox,
-                Text(
-                  region.kitchen!,
-                  style: AppTextStyles.underTitle,
+                ExpandableTextWidget(
+                  title: 'Кухня',
+                  content: region.kitchen!,
                 ),
               ],
               20.h.heightBox,
